@@ -1,4 +1,6 @@
 FROM python:3.6.3
+MAINTAINER YouliangZhang <1577121881@qq.com>
+
 
 WORKDIR /app
 COPY requirements.txt /app
