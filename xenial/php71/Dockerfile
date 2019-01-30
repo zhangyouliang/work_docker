@@ -62,7 +62,6 @@ RUN \
     && pip install supervisor  \
     && echo_supervisord_conf > /etc/supervisord.conf \
     && echo "daemon off;" >> /etc/nginx/nginx.conf \
-    && echo 'extension=swoole.so' >> /etc/php/7.1/cli/conf.d/20-swoole.ini \
     && sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.1/fpm/php-fpm.conf \
     && sed -i -e "s/nodaemon=false/nodaemon=true/g" /etc/supervisord.conf \
     && echo "files = /config/supervisor/*.conf" >> /etc/supervisord.conf \
