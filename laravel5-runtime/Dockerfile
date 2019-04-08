@@ -11,8 +11,7 @@ RUN apt-get update && \
     LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && \
     apt-get update
 
-RUN bash +x /usr/local/bin/install.sh && \
-    apt-get install -y  \
+RUN apt-get install -y  \
     git \ 
     vim \ 
     nginx  \
@@ -36,6 +35,7 @@ RUN bash +x /usr/local/bin/install.sh && \
     php7.1-opcache \
     php7.1-soap \
     php7.1-gd &&\
+    bash +x /usr/local/bin/install.sh && \
     pip install --upgrade pip; pip --version && \
     pip install supervisor && echo_supervisord_conf > /etc/supervisord.conf && \
     echo "daemon off;" >> /etc/nginx/nginx.conf && \
