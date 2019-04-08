@@ -9,12 +9,10 @@ RUN apt-get update && \
     apt-get install -y  apt-utils language-pack-en-base software-properties-common && \
     locale-gen en_US.UTF-8 && \
     LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && \
-    apt-get update
-
-RUN apt-get install -y  \
-    git \ 
-    vim \ 
-    nginx  \
+    apt-get update && \
+    apt-get install -y git \
+    vim \
+    nginx \
     python \
     python-pip \
     python-dev \
@@ -36,7 +34,7 @@ RUN apt-get install -y  \
     php7.1-soap \
     php7.1-gd &&\
     bash +x /usr/local/bin/install.sh && \
-    pip install --upgrade pip; pip --version && \
+    pip --version && \
     pip install supervisor && echo_supervisord_conf > /etc/supervisord.conf && \
     echo "daemon off;" >> /etc/nginx/nginx.conf && \
     sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.1/fpm/php-fpm.conf && \
