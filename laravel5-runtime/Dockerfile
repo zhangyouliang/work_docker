@@ -41,7 +41,7 @@ RUN apt-get update && \
     sed -i -e "s/nodaemon=false/nodaemon=true/g" /etc/supervisord.conf && \
     echo "files = /config/supervisor/*.conf" >> /etc/supervisord.conf && \
     sed -i -e "s/;\[include\]/\[include\]/g" /etc/supervisord.conf && \
-    apt-get install zlib1g-dev && pecl install grpc && echo  "extension=grpc.so" > /etc/php/7.1/cli/conf.d/20-grpc.ini && \
+    apt-get install zlib1g-dev && pecl install grpc && echo  "extension=grpc.so" > /etc/php/7.1/fpm/conf.d/20-grpc.ini && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir /run/php/
 
