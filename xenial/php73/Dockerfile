@@ -39,7 +39,6 @@ RUN \
     php7.3-json \
     php7.3-ldap \
     php7.3-mbstring \
-    php7.3-mcrypt \
     php7.3-pspell \
     php7.3-readline \
     php7.3-soap \
@@ -59,6 +58,7 @@ RUN \
     reprepro \
     libmariadbclient-dev \
     && pecl install -o -f swoole && echo 'extension=swoole.so' >> /etc/php/7.1/cli/conf.d/20-swoole.ini \
+    && pip install libmcrypt-dev && pecl install mcrypt-1.0.1 \
     && pip install supervisor  \
     && echo_supervisord_conf > /etc/supervisord.conf \
     && echo "daemon off;" >> /etc/nginx/nginx.conf \
