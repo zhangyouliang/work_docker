@@ -57,12 +57,12 @@ RUN \
     git-buildpackage \
     reprepro \
     libmariadbclient-dev \
-    && pecl install -o -f swoole && echo 'extension=swoole.so' >> /etc/php/7.1/cli/conf.d/20-swoole.ini \
+    && pecl install -o -f swoole && echo 'extension=swoole.so' >> /etc/php/7.3/cli/conf.d/20-swoole.ini \
     && pip install libmcrypt-dev && pecl install mcrypt-1.0.1 \
     && pip install supervisor  \
     && echo_supervisord_conf > /etc/supervisord.conf \
     && echo "daemon off;" >> /etc/nginx/nginx.conf \
-    && sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.1/fpm/php-fpm.conf \
+    && sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.3/fpm/php-fpm.conf \
     && sed -i -e "s/nodaemon=false/nodaemon=true/g" /etc/supervisord.conf \
     && echo "files = /config/supervisor/*.conf" >> /etc/supervisord.conf \
     && sed -i -e "s/;\[include\]/\[include\]/g" /etc/supervisord.conf \

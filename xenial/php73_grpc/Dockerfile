@@ -6,7 +6,7 @@ COPY install.sh /usr/local/bin/install.sh
 RUN \
     apt-get update && \
     bash +x /usr/local/bin/install.sh && \
-    pecl install grpc && echo  "extension=grpc.so" > /etc/php/7.1/fpm/conf.d/20-grpc.ini && \
+    pecl install grpc && echo  "extension=grpc.so" > /etc/php/7.3/fpm/conf.d/20-grpc.ini && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /srv
